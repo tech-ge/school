@@ -1,0 +1,14 @@
+'use client';
+import { create } from 'zustand';
+
+interface AuthState {
+  user: any | null;
+  setUser: (u: any) => void;
+  clear: () => void;
+}
+
+export const useAuthStore = create<AuthState>((set) => ({
+  user: null,
+  setUser: (user) => set({ user }),
+  clear: () => set({ user: null }),
+}));
