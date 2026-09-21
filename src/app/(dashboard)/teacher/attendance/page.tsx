@@ -24,7 +24,7 @@ export default function AttendancePage() {
     <div className="space-y-8 animate-fade-in">
       <div>
         <h1 className="font-display text-4xl mb-2">Mark Attendance</h1>
-        <p className="text-muted">Record today's class attendance</p>
+        <p className="text-muted">Record today&apos;s class attendance</p>
       </div>
 
       <div className="glass p-6 rounded-2xl space-y-4">

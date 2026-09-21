@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Toaster } from 'sonner';
-import '@/styles/globals.css';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'TechGeo University — Excellence Redefined',

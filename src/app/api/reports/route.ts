@@ -4,6 +4,8 @@ import { Student } from '@/lib/db/models/Student';
 import { Teacher } from '@/lib/db/models/Teacher';
 import { Payment } from '@/lib/db/models/Payment';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   await connectDB();
   const [students, teachers, payments] = await Promise.all([

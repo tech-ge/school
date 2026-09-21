@@ -6,7 +6,7 @@ export default function ParentOverview() {
     <div className="space-y-8 animate-fade-in">
       <div>
         <h1 className="font-display text-4xl mb-2">Parent <span className="gold-text">Portal</span></h1>
-        <p className="text-muted">Monitor your children's academic journey</p>
+        <p className="text-muted">Monitor your children&apos;s academic journey</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

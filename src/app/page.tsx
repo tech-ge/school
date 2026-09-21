@@ -37,7 +37,7 @@ export default function LandingPage() {
 
         <p className="max-w-2xl mx-auto text-lg text-white/60 mb-12 animate-fade-in">
           TechGeo University blends elite academics with cutting-edge technology —
-          a campus experience engineered for the world's next generation of pioneers.
+          a campus experience engineered for the world&apos;s next generation of pioneers.
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 animate-slide-up">

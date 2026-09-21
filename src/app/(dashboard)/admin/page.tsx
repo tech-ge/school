@@ -8,6 +8,8 @@ import { StatsCard } from '@/components/ui/StatsCard';
 import { Users, GraduationCap, DollarSign, BookOpen } from 'lucide-react';
 import { AdminCharts } from '@/components/dashboard/Charts';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminPage() {
   await connectDB();
   const [students, teachers, classes, payments] = await Promise.all([

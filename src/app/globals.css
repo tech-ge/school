@@ -76,3 +76,9 @@ body::before {
     @apply transition-all duration-500 hover:-translate-y-1;
   }
 }
+
+.shimmer-line {
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
