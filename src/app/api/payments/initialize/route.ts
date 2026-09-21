@@ -3,14 +3,25 @@ import { connectDB } from '@/lib/db/connect';
 import { Fee } from '@/lib/db/models/Fee';
 import { Payment } from '@/lib/db/models/Payment';
 import { initializePayment } from '@/lib/paystack/initialize';
+import { getParentStudentIds, getStudentForUser, requireUser, responseForAccess } from '@/lib/auth/access';
 
 export async function POST(req: Request) {
   try {
+    const access = await requireUser(['ADMIN', 'STUDENT', 'PARENT']);
+    if ('error' in access) return responseForAccess(access);
     await connectDB();
     const { feeId, email } = await req.json();
 
     const fee = await Fee.findById(feeId);
     if (!fee) return NextResponse.json({ error: 'Fee not found' }, { status: 404 });
+    const feeStudentId = String(fee.studentId);
+    if (access.user.role === 'STUDENT') {
+      const student = await getStudentForUser(access.user.userId) as any;
+      if (!student || String(student._id) !== feeStudentId) return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
+    if (access.user.role === 'PARENT' && !(await getParentStudentIds(access.user.userId)).includes(feeStudentId)) {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
 
     const reference = `TG_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 

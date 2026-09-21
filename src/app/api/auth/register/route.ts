@@ -15,6 +15,9 @@ export async function POST(req: Request) {
     if (!name || !email || !password || !role) {
       return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
     }
+    if (!['STUDENT', 'TEACHER', 'PARENT'].includes(role)) {
+      return NextResponse.json({ error: 'Invalid registration role' }, { status: 400 });
+    }
 
     const existing = await User.findOne({ email });
     if (existing) return NextResponse.json({ error: 'Email already registered' }, { status: 409 });

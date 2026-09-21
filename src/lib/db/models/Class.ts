@@ -4,6 +4,7 @@ const ClassSchema = new Schema({
   code: { type: String, unique: true, required: true },
   name: String,
   department: String,
+  subjectId: { type: Schema.Types.ObjectId, ref: 'Subject' },
   teacherId: { type: Schema.Types.ObjectId, ref: 'Teacher' },
   students: [{ type: Schema.Types.ObjectId, ref: 'Student' }],
   schedule: String,
